@@ -71,6 +71,6 @@ void tty_writechar(char ch, char color) {
 void tty_print(const char *string) {
     size_t len = strlen(string);
     for(int i = 0 ; i < len; ++i) {
-        tty_writechar(string[i], 2);
+        tty_writechar(string[i], LightGreen);
     }
 }
