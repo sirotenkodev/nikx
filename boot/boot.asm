@@ -21,17 +21,13 @@ run:
     sti                                        ; Turn on interrups
     mov si, message
     call print
-    call print_disk
 
     jmp $
 
 %include "print.asm"
-%include "disk.asm"
 
 message: db 'Hello, nikxos', 0
 times 510 - ($ - $$) db 0               ; minimum 510 bytes set 0
 
 ; Shows that this is boot sector
 dw 0xaa55
-
-buffer:
