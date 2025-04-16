@@ -44,6 +44,7 @@
 
 #Os foles
 .dis
+.vscode/
 
 # Kernel Module Compile Results
 *.mod*
