@@ -1,4 +1,4 @@
-FILES = kernel.asm.o tty.o kernel.o
+FILES = kernel.asm.o string.o tty.o kernel.o
 INCLUDES = -I../kernel/include
 FLAGS = -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc
 
@@ -13,10 +13,13 @@ boot.bin:
 	mkdir -p ../iso && mv ../build/boot.bin ../iso/boot.bin
 
 kernel.o: ../kernel/src/kernel.c
-	i686-elf-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c $< -o $@
+	i686-elf-gcc $(INCLUDES) -I../lib $(FLAGS) -std=gnu99 -c $< -o $@
 
 tty.o: ../kernel/src/tty.c
-	i686-elf-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c $< -o $@
+	i686-elf-gcc $(INCLUDES) -I../lib $(FLAGS) -std=gnu99 -c $< -o $@
+
+string.o: ../lib/string.c
+	i686-elf-gcc $(INCLUDES) -I../lib $(FLAGS) -std=gnu99 -c $< -o $@
 
 kernel.asm.o: ../kernel/kernel.asm
 	cd ../kernel && nasm -f elf -g kernel.asm -o ../build/kernel.asm.o && cd -
