@@ -1,8 +1,8 @@
-; Fill gdt from tutorial https://wiki.osdev.org/Protected_Mode
+; Fill gdt from tutorial https://wiki.osdev.org/GDT_Tutorial
 gdt_start:                      ; For calculate
 gdt_null:
-    dd 0x0
-    dd 0x0
+    dd 0x0                      ; For limit storage
+    dd 0x0                      ; For base storage
 
 gdt_code:
     dw 0xffff                   ; Segment 0-15 offset https://wiki.osdev.org/Global_Descriptor_Table

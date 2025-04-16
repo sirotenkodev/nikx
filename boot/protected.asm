@@ -10,18 +10,8 @@ init32:
 
 [bits 32]
 load32:
-    mov ax, DATA_SEG
-    mov ds, ax
-    mov ss, ax
-    mov es, ax
-    mov fs, ax
-    mov gs, ax
-    
-    mov ebp, 0x00200000
-    mov esp, ebp
-
-    ; Enable a20 lines
-    in al, 0x92
-    or al, 2
-    out 0x92, al
+    mov eax, 1                  ; Start load sector from disk(0 - boot sector) because we started from 1
+    mov ecx, 100                ; Total of numbers sectors wich we load
+    mov edi, 0x0100000          ; 1M where start our kernel(we load sectors from disk into 0x0100000)
+    call load_lba_ata
     call start32

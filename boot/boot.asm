@@ -25,14 +25,16 @@ run:
 %include "print.asm"
 %include "gdt.asm"
 %include "protected.asm"
+%include "disk.asm"
 
 [bits 32]
 start32:
-    mov ebx, message
+    mov ebx, complete_message
 	call printf32
-    jmp $
+    jmp CODE_SEG:0x0100000
 
 message: db 'Hello, nikxos', 0
+complete_message: db 'Kernel load complete'
 times 510 - ($ - $$) db 0               ; minimum 510 bytes set 0
 
 ; Shows that this is boot sector

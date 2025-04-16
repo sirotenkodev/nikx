@@ -8,6 +8,6 @@ My simple unix-like os
 Папка [iso](https://github.com/sirotenkodev/nikx/tree/main/iso) содержит последний собранный образ  
 запустить можно:
   - sudo apt-get install qemu-system-x86
-  - qemu-system-x86 -hda boot.bin
+  - qemu-system-x86 -hda os.bin
 
       
