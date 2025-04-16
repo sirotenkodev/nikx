@@ -19,4 +19,9 @@ load32:
     
     mov ebp, 0x00200000
     mov esp, ebp
+
+    ; Enable a20 lines
+    in al, 0x92
+    or al, 2
+    out 0x92, al
     call start32
