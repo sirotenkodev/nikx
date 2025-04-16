@@ -21,3 +21,5 @@ _start:
     or al, 2
     out 0x92, al
     jmp $
+
+times 512 - ($ - $$) db 0               ; Align our bin file
