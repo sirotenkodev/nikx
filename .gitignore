@@ -43,9 +43,7 @@
 *.pdb
 
 #Os foles
-.bin
 .dis
-iso/
 
 # Kernel Module Compile Results
 *.mod*
