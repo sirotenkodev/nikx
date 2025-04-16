@@ -5,5 +5,5 @@
 
 void kmain(void) {
     tty_init();
-    tty_print("hello, from C kernel \rB\n\tnikx os");
+    tty_print("hello, from C kernel \rB\n\t   nikx os\rhi");
 }

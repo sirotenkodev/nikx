@@ -1,4 +1,4 @@
-FILES = kernel.asm.o string.o tty.o kernel.o
+FILES = kernel.asm.o kernel.o string.o tty.o 
 INCLUDES = -I../kernel/include
 FLAGS = -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc
 
@@ -35,6 +35,6 @@ run: os.bin
 	make clean
 
 clean:
-	$(RM) ../build/*.o ../iso/*.bin
+	$(RM) ../build/*.o ../iso/boot.bin ../iso/kernel.bin
 
 .PHONY: all clean run
